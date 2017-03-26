@@ -1,25 +1,34 @@
 public class CheckingAccount extends Account{
-	super(balance);
+
 	private double credit_limit;
 	private double interest;  //이자
 	private double loan_interest;  //대출이자
 	
-	double balance;
+	public void setCreditLimit(double c){
+		credit_limit=c;
+	}
+	public void setInterest(double i){
+		interest=i;
+	}
+	public void setLoanInterest(double l){
+		loan_interest=l;
+	}
+
+	
+	@Override
 	public void debit(double s){
-		if(s>credit_limit){
+		if(getBalance()-s<-credit_limit){
 			System.out.print("Can't debit\n");
-		}
-		if(balance<0){
-			System.out.print("Debit amount exceeded account balance\n");
+		}else if(getBalance()-s>=-credit_limit){
+			setBalance(getBalance()-s);
 		}
 	}
 	
 	public void nextMonth(){
-		if(balance>0){
-			balance=balance+balance*interest;
-		}
-		if(balance<0){
-			balance=balance+ balance*loan_interest;
+		if(getBalance()>0){
+			setBalance(getBalance()*(1+interest));
+		}else if(getBalance()<0){
+			setBalance(getBalance()*(1+loan_interest));
 		}
 	}
 }

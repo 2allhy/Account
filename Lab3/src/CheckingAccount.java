@@ -1,5 +1,5 @@
 public class CheckingAccount extends Account{
-
+    
 	private double credit_limit;
 	private double interest;  //이자
 	private double loan_interest;  //대출이자
@@ -31,4 +31,12 @@ public class CheckingAccount extends Account{
 			setBalance(getBalance()*(1+loan_interest));
 		}
 	}
+	public CheckingAccount(int balance, setCreditLimit(), SetInterest(), loan,interest)
+	public double getWithdrawableAccount(){
+	
+	}
+	public void passTime(int a){
+		getBalance()*(1)
+	}
+
 }

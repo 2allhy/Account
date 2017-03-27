@@ -36,7 +36,7 @@ public class CheckingAccount extends Account{
 	
 	}
 	public void passTime(int a){
-		getBalance()*(1)
+		getBalance()*(1
 	}
 
 }

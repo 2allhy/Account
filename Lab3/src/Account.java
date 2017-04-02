@@ -1,6 +1,11 @@
+import java.util.Scanner;
 
-public class Account {
+abstract class Account {
 	private double balance;
+	
+	public Account(double _balance){
+		balance=_balance;
+	}
 	
 	public double getBalance(){  //잔액환인  읽기
 		return balance;
@@ -18,8 +23,8 @@ public class Account {
 	protected void setBalance(double s){   //잔액수정  쓰기
 		balance=s;
 	}
-	public abstract getWithdrawableAccount();
-	public abstract passTime(int);
+	abstract double getWithdrawableAccount();
+	abstract void passTime(int month);
 	
 }
 	

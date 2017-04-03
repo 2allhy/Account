@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-abstract class Account {
+abstract class Account implements Valuable {
 	private double balance;
 	
 	public Account(double _balance){
@@ -24,6 +24,7 @@ abstract class Account {
 		balance=s;
 	}
 	abstract double getWithdrawableAccount();
+	
 	abstract void passTime(int month);
 	
 }

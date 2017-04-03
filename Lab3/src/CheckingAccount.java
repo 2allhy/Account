@@ -3,6 +3,7 @@ public class CheckingAccount extends Account{
 	private double credit_limit;
 	private double interest;  //이자
 	private double loan_interest;  //대출이자
+	private double estimateMoney;
 	
 	public void setCreditLimit(double c){
 		credit_limit=c;
@@ -45,7 +46,6 @@ public class CheckingAccount extends Account{
 			return 0.0;
 		}
 	}
-	
 	public void passTime(int month){      //해당기간이 지난후 이자계산
 		if(getBalance()>0){
 			setBalance(getBalance()*(1+interest));
@@ -61,5 +61,14 @@ public class CheckingAccount extends Account{
 		return true;
 	}
 	}
-
+	public double EstimateValue(int month){
+		if(getBalance()>0){
+			for(int i=0; i<month; i++){
+				setBalance(getBalance()*(1+interest));
+			}
+		}return getBalance();
+	}
+	public String toString(){
+		return String.format("CheckingAccount_Balance: %.2f" , getBalance());
+	}
 }

@@ -2,6 +2,7 @@
 public class SavingAccount extends Account {
 	private double interest;
 	private int month;
+	private double estimateMoney;
 	
 	public SavingAccount(double balance, double interest){
 		super(balance);
@@ -32,5 +33,12 @@ public class SavingAccount extends Account {
 		if(month==12){
 			setBalance(getBalance()*Math.pow((1+interest), month));
 		}
+	}
+	public double EstimateValue(int a){
+		setBalance(getBalance()*Math.pow((1+interest), a));
+		return getBalance();
+	}
+	public String toString(){
+		return String.format("SavingAccount_Balance: %.2f" , getBalance());
 	}
 }

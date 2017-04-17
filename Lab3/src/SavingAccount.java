@@ -16,13 +16,16 @@ public class SavingAccount extends Account {
 		}		
 	}
 	
-	public void debit(double money){
+	public void debit(double amount)throws Exception{
 		if(month<=12){
-			System.out.println("아직 출금할 수 없습니다.");
+			throw new Exception("아직 출금할 수 없습니다.");
 		}else{
-			if(getBalance()-money>0){
-				setBalance(getBalance()-money);
-			}else{
+			if(getBalance()-amount>0){
+				setBalance(getBalance()-amount);
+			}else if(amount<0){
+				throw new Exception("음수입력!");
+			}
+			else{
 				System.out.println("한도초과로 출금이 불가능합니다.");
 			}
 		}
@@ -34,9 +37,18 @@ public class SavingAccount extends Account {
 			setBalance(getBalance()*Math.pow((1+interest), month));
 		}
 	}
+	public void passTime(){	
+		setBalance(getBalance()*0);
+	}
+	
 	public double EstimateValue(int a){
-		setBalance(getBalance()*Math.pow((1+interest), a));
-		return getBalance();
+		estimateMoney=getBalance()*Math.pow((1+interest), a);
+		return estimateMoney;
+	}
+	
+	public double EstimateValue(){
+		estimateMoney=getBalance()*(1+interest);
+		return estimateMoney;
 	}
 	public String toString(){
 		return String.format("SavingAccount_Balance: %.2f" , getBalance());

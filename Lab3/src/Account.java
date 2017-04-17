@@ -10,13 +10,15 @@ abstract class Account implements Valuable {
 	public double getBalance(){  //잔액환인  읽기
 		return balance;
 	}
-	public void debit(double s){    //출금
+	public void debit(double amount)throws Exception{balance-=amount;}
+	
+	/*public void debit(double s){    //출금
 		balance-=s;
 		if(balance<0){
 			System.out.print("Debit amount exceeded account balance\n");
 			balance+=s;
 		}
-	}
+	}*/
 	public void credit(double s){  //입금
 		balance+=s;
 	}
@@ -26,6 +28,7 @@ abstract class Account implements Valuable {
 	abstract double getWithdrawableAccount();
 	
 	abstract void passTime(int month);
+	abstract void passTime();
 	
 }
 	
